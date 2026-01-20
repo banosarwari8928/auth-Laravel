@@ -31,5 +31,8 @@ class CustomerController extends Controller
        $customer->gender= $request->gender;
        $customer->imgUrl= $imgPath->img;
        $customer->save();
+    //    event(new createUserEvent())
     }
 }
+// //
+    //    

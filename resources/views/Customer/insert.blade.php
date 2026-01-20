@@ -13,7 +13,7 @@
         <div class="bg-gradient-to-b from-gray-100 to-gray-400 p-4 w-[50%] rounded-md shadow-sm shadow-gray-800">
            @if ($errors->count()>0)
                
-           @endif
+           
             @foreach (@errors->all() as $error )
                 <div>
                     <h1 class="text-bold text-4xl text-red-600">{{$error}}</h1>
