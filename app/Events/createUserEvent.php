@@ -17,9 +17,11 @@ class createUserEvent
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public $customer;
+    public function __construct(Customer $customer)
     {
         //
+        $this->customer = $customer;
     }
 
     /**
