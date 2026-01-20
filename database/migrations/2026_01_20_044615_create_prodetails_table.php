@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("describtion");
             $table->integer("quantity");
             $table->string("made_in");
-            $table->forgeinId('productId')->constrained("products");
+            $table->foreignId('product_id')->constrained("products");
             $table->timestamps();
         });
     }
