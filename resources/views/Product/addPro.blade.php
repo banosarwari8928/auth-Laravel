@@ -8,11 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-    <div class="w-full bg-stone-300 ">
+    <div class="w-full bg-stone-200 items-center justify-center  ">
         <div> 
             <h1>Add Product</h1>
-            @csrf
-            <form class="flex flex-col md:w-8/12 lg:7/12 w-full p-4" method="POST" enctype="multipart/form-data" action="{{ "pro/create" }}">
+           
+            <form class="flex flex-col    p-4" method="POST" enctype="multipart/form-data" action="{{ URL ('/pro/create') }}">
+                 @csrf
             <input type="text" placeholder="proName" name="proname" class="border focus:outline-0 focus:border-blue-400 ring-sky-600 rounded-sm p-4 w-full  ">
             <input type="number" placeholder="price" name="price" class="border focus:outline-0 focus:border-blue-400 ring-sky-600 rounded-sm p-4 w-full  ">
             <input type="number" placeholder="quantity" name="quantity" class="border focus:outline-0 focus:border-blue-400 ring-sky-600 rounded-sm p-4 w-full  ">

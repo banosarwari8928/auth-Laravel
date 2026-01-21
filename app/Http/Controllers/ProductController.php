@@ -8,7 +8,7 @@ class ProductController extends Controller
 {
     //
     public function ShowForm(){
-        return view("Customer.addPro");
+        return view("Product.addPro");
     }
     public function create(Request $r){
         $r->validate([
@@ -16,7 +16,7 @@ class ProductController extends Controller
         ]);
            $imgPath=null;
         if($request->hasFile("image")){
-            $imgPath = $request->file("img")->store('proimages',"public");
+            $imgPath = $request->file("image")->store('proImages',"public");
         }
         $p=new Product();
         $p->name=$r->name;
@@ -26,6 +26,8 @@ class ProductController extends Controller
         $pd->describtion= $r->details;
         $pd->quantity= $r->quantity;
         $pd->made_in= $r->made_in;
-        $pd->product_id=$r->proId;
+        $pd->product_id=$p->id;
+        $pd->imgUrl=$imgPath;
+        $pd->save();
             } 
 }
