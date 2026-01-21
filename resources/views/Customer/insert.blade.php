@@ -20,9 +20,9 @@
             @endif
              <h1 class="text-center flex justify-center items-center text-simebold text-gray-600">Add Customer</h1>
              @csrf
-            <form action="" class="flex flex-col mx-auto my-3  gap-4">
+            <form action="{{ URL ('/customer/upload') }}" enctype="multipart/form-data" method="post" class="flex flex-col mx-auto my-3  gap-4">
                 <input type="text"  class="border border-gray-500" placeholder="name" name="name">
-                <input type="text"  class="border border-gray-400" placeholder="Last Name" name="lastNane">
+                <input type="text"  class="border border-gray-400" placeholder="Last Name" name="lastName">
                 <input type="email" class="border border-gray-200" placeholder=" email" name="email">
                 <select name="gender" id="">
                     <option value="male">Male</option>

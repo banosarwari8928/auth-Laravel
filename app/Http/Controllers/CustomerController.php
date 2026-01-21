@@ -11,7 +11,7 @@ class CustomerController extends Controller
        $user= User::where("user_type","customer")->get();
         return view("Customer.home" , ['users'=>$user]);
     }
-    public function update(Request $request ){
+    public function add(Request $request ){
         $request->validate(
             [
                 "name"=>"required|min:2|max:12",
@@ -31,7 +31,7 @@ class CustomerController extends Controller
        $customer->gender= $request->gender;
        $customer->imgUrl= $imgPath->img;
        $customer->save();
-    //    event(new createUserEvent())
+       event(new createUserEvent($customer));
     }
 }
 // //

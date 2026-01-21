@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('prodetails', function (Blueprint $table) {
             //
+            $table->string("imgUrl");
         });
     }
 
@@ -23,7 +24,7 @@ return new class extends Migration
     {
         Schema::table('prodetails', function (Blueprint $table) {
             //
-
+            $table->dropColumn("imgUrl");
         });
     }
 };

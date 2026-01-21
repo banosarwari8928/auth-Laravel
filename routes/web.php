@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
+// use App\Http\Controllers\CustomerController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,6 +22,11 @@ Route::middleware('auth')->group(function () {
 Route::prefix("/customer")->controller(CustomerController::class)->group(function(){
     Route::get("/",'index');
     Route::view("create","Customer.insert");
+    Route::post("/upload","add");
+});
+Route::prefix("pro")->controller(ProductController::class)->group(function(){
+      Route::get("addPro","showForm");
+      Route::post("create","create");
 });
 // Route::get("ure",)
 
