@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Models\prodetail;
+use App\Models\product;
+
 
 class ProductController extends Controller
 {
@@ -10,18 +12,21 @@ class ProductController extends Controller
     public function ShowForm(){
         return view("Product.addPro");
     }
+
+
+
     public function create(Request $r){
-        $r->validate([
-            "name"=>"required|min:3|max:20",
-        ]);
+        // $r->validate([
+        //     "name"=>"required|min:3|max:20",
+        // ]);
            $imgPath=null;
-        if($request->hasFile("image")){
-            $imgPath = $request->file("image")->store('proImages',"public");
+        if($r->hasFile("image")){
+            $imgPath = $r->file("image")->store('proImages',"public");
         }
-        $p=new Product();
-        $p->name=$r->name;
+        $p= new Product();
+        $p->name = $r->proname;
         $p->save();
-        $pd= new ProDetails();
+        $pd= new prodetail ();
         $pd->price = $r->price;
         $pd->describtion= $r->details;
         $pd->quantity= $r->quantity;
@@ -29,5 +34,6 @@ class ProductController extends Controller
         $pd->product_id=$p->id;
         $pd->imgUrl=$imgPath;
         $pd->save();
+        return redirect('/');
             } 
 }

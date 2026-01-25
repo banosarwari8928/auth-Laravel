@@ -52,6 +52,6 @@
             
         </header>
 
-      <x-hero> 
+      <x-hero /> 
     </body>
 </html>

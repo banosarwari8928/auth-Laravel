@@ -12,7 +12,7 @@
         <div> 
             <h1>Add Product</h1>
            
-            <form class="flex flex-col    p-4" method="POST" enctype="multipart/form-data" action="{{ URL ('/pro/create') }}">
+            <form  action="{{ URL('pro/create')}}" class="flex flex-col p-4" method="post" enctype="multipart/form-data">
                  @csrf
             <input type="text" placeholder="proName" name="proname" class="border focus:outline-0 focus:border-blue-400 ring-sky-600 rounded-sm p-4 w-full  ">
             <input type="number" placeholder="price" name="price" class="border focus:outline-0 focus:border-blue-400 ring-sky-600 rounded-sm p-4 w-full  ">

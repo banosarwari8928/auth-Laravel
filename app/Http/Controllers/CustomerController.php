@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -17,7 +18,7 @@ class CustomerController extends Controller
                 "name"=>"required|min:2|max:12",
                 "lastName"=>"required|min:6|max:12",
                 "email"=>"required|min:7",
-                "img"=>"nullable|mimies:png,jpg,jpeg,gif"
+                // "img"=>"nullable|memies:png,jpg,jpeg,gif"
             ]
         );
         $imgPath=null;
@@ -29,7 +30,7 @@ class CustomerController extends Controller
        $customer->lastName= $request->lastName;
        $customer->email= $request->email;
        $customer->gender= $request->gender;
-       $customer->imgUrl= $imgPath->img;
+       $customer->imgUrl= $imgPath;
        $customer->save();
        event(new createUserEvent($customer));
     }
