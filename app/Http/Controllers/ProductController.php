@@ -17,9 +17,6 @@ class ProductController extends Controller
            return view("welcome",["pro"=>$pro]); 
     }
     public function create(Request $r){
-        // $r->validate([
-        //     "name"=>"required|min:3|max:20",
-        // ]);
            $imgPath=null;
         if($r->hasFile("image")){
             $imgPath = $r->file("image")->store('proImages',"public");
@@ -32,7 +29,7 @@ class ProductController extends Controller
         $pd->describtion= $r->details;
         $pd->quantity= $r->quantity;
         $pd->made_in= $r->made_in;
-        $pd->product_id=$p->id;
+        $pd->product_id=$p->id;            
         $pd->imgUrl=$imgPath;
         $pd->save();
         return redirect('/');

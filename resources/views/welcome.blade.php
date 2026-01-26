@@ -51,7 +51,23 @@
             @endif
             
         </header>
+        <div>
+      <x-hero /> </div>
 
-      <x-hero /> 
+      <div class="flex flex-col items-center w-full">
+        <h1 class="text-4xl font-bold">Featured Product</h1>
+        <div class="grid grid-cols-3 gap-8">
+            @if ($pro->count()>0)
+            @foreach ($pro as $product)
+            <div>
+                <img src="{{ '/storage/'.$product->productDetail->imgUrl }}" alt="">
+                </div>
+            @endforeach
+                @else
+                <h1>No products exists</h1>
+            @endif
+        </div>
+      </div>
+      
     </body>
 </html>

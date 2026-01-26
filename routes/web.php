@@ -6,9 +6,10 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 // use App\Http\Controllers\CustomerController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/',[ProductController::class,"landing"]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
