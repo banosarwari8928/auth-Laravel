@@ -12,9 +12,10 @@ class ProductController extends Controller
     public function ShowForm(){
         return view("Product.addPro");
     }
-
-
-
+    public function landing(){
+            $pro = product::with("productDetail")->get();
+           return view("welcome",["pro"=>$pro]); 
+    }
     public function create(Request $r){
         // $r->validate([
         //     "name"=>"required|min:3|max:20",

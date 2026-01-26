@@ -25,9 +25,10 @@ Route::prefix("/customer")->controller(CustomerController::class)->group(functio
     Route::post("/upload","add");
 });
 Route::prefix("pro")->controller(ProductController::class)->group(function(){
+    Route::get("/","landing");
       Route::get("addPro","showForm");
       Route::post("create","create");
 });
-// Route::get("ure",)
+
 
 require __DIR__.'/auth.php';
