@@ -13,6 +13,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
         <!-- Styles -->
         <style>
@@ -59,8 +60,14 @@
         <div class="grid grid-cols-3 gap-8">
             @if ($pro->count()>0)
             @foreach ($pro as $product)
-            <div>
-                <img src="{{ '/storage/'.$product->productDetail->imgUrl }}" alt="">
+            <div class="flex flex-col rounded-lg gap-2 ">                                                               
+                <img class="border border-gray-100  h-42 rounded-md" src="{{ '/storage/'. $product->productDetail->imgUrl }}" alt=""><div class="p-4">
+                <h1 class="text-4xl  p-1 "> {{ $product->name}}</h1></div>
+                <div>
+                <p class="  p-1 ">{{ $product->productDetail->price}} Afg</p>
+                <p class="  p-1 ">Product from: {{ $product->productDetail->made_in}}</p>
+            </div>
+                <p class="  text-gray-400 text-sm ">{{ $product->productDetail->details}}</p>
                 </div>
             @endforeach
                 @else

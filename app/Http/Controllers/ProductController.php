@@ -14,6 +14,7 @@ class ProductController extends Controller
     }
     public function landing(){
             $pro = product::with("productDetail")->get();
+            // return $pro;
            return view("welcome",["pro"=>$pro]); 
     }
     public function create(Request $r){

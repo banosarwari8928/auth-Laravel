@@ -16,7 +16,7 @@ class adminGuard
     public function handle(Request $request, Closure $next): Response
     {
         $user = Auth::user();
-        if( $user->user_type==="admin"){
+        if( $user->user_type !=="admin"){
             return back();
     }           
         return $next($request);

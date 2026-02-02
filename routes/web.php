@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::prefix("/customer")->controller(CustomerController::class)->middleware(adminGuard::class)->group(function(){
+Route::prefix("/customer")->controller(CustomerController::class)->group(function(){
     Route::get("/",'index');
     Route::view("create","Customer.insert");
     Route::post("/upload","add");
